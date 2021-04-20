@@ -141,3 +141,16 @@ extension MyData: CustomStringConvertible{
         return "MyData (\(tag))"
     }
 }
+
+// MARK:- Protocol Extension
+// Allow default behaviour for functions
+//extension TaggedPersistable{
+//    init(tag: String, contentsOf url: URL) throws {
+//        let data = try Data.init(contentsOf: url)
+//        self.init(tag: tag, data: data)
+//    }
+//    
+//    func persist(to url: URL) throws {
+//        try self.data.write(to: url)
+//    }
+//}
