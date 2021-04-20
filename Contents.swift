@@ -52,3 +52,35 @@ extension String: Encrypting{
 
 let source = "Andrew Maher"
 let target = source.xor(key: 2)
+
+// MARK:- Polymorphism
+
+protocol Shape{
+    var area: Double { get }
+}
+
+struct Rectangle: Shape{
+    let width: Double
+    let height: Double
+    
+    var area: Double{
+        return width * height
+    }
+}
+
+struct Circle: Shape{
+    let raduis: Double
+    
+    var area: Double{
+        return .pi * raduis * raduis
+    }
+}
+
+let shapes: [Shape] = [
+    Rectangle(width: 10, height: 20),
+    Circle(raduis: 5)
+]
+
+for shape in shapes{
+    print(shape.area)
+}
