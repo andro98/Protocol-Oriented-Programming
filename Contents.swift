@@ -38,3 +38,17 @@ struct TaggedData: Taggable{
         self.data = data
     }
 }
+
+// MARK:- Confirm to Protocol through Extensions
+protocol Encrypting{
+    func xor(key: UInt8) -> Self?
+}
+
+extension String: Encrypting{
+    func xor(key: UInt8) -> String? {
+        return String(bytes: self.utf8.map{ $0 ^ key}, encoding: .utf8)
+    }
+}
+
+let source = "Andrew Maher"
+let target = source.xor(key: 2)
